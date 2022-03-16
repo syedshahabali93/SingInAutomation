@@ -8,8 +8,6 @@ Documentation    This section contains all the test cases related to Login page/
 
 *** Keywords ***
 
-*** Test Cases ***
-
 Login Test
     [documentation]    Verify webpage is opened using URL "https://test-dashboard.singit.io/"
 
@@ -42,4 +40,4 @@ Login to webpage
     click element    //*[@id="main-content"]/app-login/div/form/div[3]/input
     input password    //*[@id="main-content"]/app-login/div/form/div[3]/input   Aa12345678
     click button    //*[@id="main-button"]
-    press keys    None      ESC
+    sleep    2

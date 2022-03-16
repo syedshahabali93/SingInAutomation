@@ -1,6 +1,5 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    SeleniumLibrary
 
 *** Keywords ***
 Start Test

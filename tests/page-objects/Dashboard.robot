@@ -4,21 +4,22 @@ Library    SeleniumLibrary
 Documentation    This section contains all the test cases related to Dashboard page/functionality.
 Library    SeleniumLibrary
 
-*** Test Cases ***
+*** Keywords ***
 
 Dashboard Test
     [documentation]    Verify elements are present on Dashboard
 
+    press keys    None      ESC
     page should contain element    //*[@id="wrapper"]/div[1]/h1
     element should be visible    //*[@id="wrapper"]/div[1]/h1
     ${overview}     get text    //*[@id="wrapper"]/div[1]/h1
     should be equal as strings    ${overview}   Overview
-    page should contain element    //*[contains()="students currently logged in."]
-    element should be visible    //*[contains()="students currently logged in."]
-    page should contain element    //*[contains()="Users are active now"]
-    element should be visible    //*[contains()="Users are active now"]
-    page should contain element    //*[@id="apexchartsh2gy3olo"]
-    element should be visible    //*[@id="apexchartsh2gy3olo"]
+    page should contain element    //*[contains(text(), 'students currently logged in')]
+    element should be visible    //*[contains(text(), 'students currently logged in')]
+    page should contain element    //*[contains(text(), 'Users are active now')]
+    element should be visible    //*[contains(text(), 'Users are active now')]
+    page should contain element    //*[@id="main-card"]
+    element should be visible    //*[@id="main-card"]
     page should contain element    //*[text()="Vocabulary quizzes"]
     element should be visible    //*[text()="Vocabulary quizzes"]
     page should contain element    //*[text()="Grammar quizzes"]
@@ -35,8 +36,8 @@ Dashboard Test
     element should be visible    //*[text()="Assignments"]
     page should contain element    //*[text()="Most pressed words"]
     element should be visible    //*[text()="Most pressed words"]
-    page should contain element    //*[contains()="Log out"]
-    element should be visible    //*[contains()="Log out"]
-    click element    //*[@id="account"]/div[2]/span
+    page should contain element    //*[contains(text(), 'Log out')]
+    element should be visible    //*[contains(text(), 'Log out')]
+#    click element    //*[@id="account"]/div[2]/span
 #    ${dashboard_login}      get text    //*[@id="main-content"]/app-login/div/form/h1
 #    should be equal as strings    ${dashboard_login}    Dashboard login
