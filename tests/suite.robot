@@ -33,3 +33,7 @@ Three vertical dots
 In three vertical dots - Edit class
 In three vertical dots - Watch class progress
 In three vertical dots - Content policy
+In three vertical dots - Remove Group
+In three vertical dots - Remove Group - Test Cancel button
+In three vertical dots - Remove Group - Test Remove button
+
