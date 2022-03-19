@@ -1,5 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    SeleniumLibrary
+Documentation    Here all the elements that are commonly used over the project are present
 
 *** Keywords ***
 Start Test

@@ -124,7 +124,74 @@ Marketplace view section
     should be equal as strings    ${vocabulary_quiz}    ${vocabulary_quiz_type}
     ${speaking_quiz}    get text    //*[@id="list"]/li[6]/p
     should be equal as strings    ${speaking_quiz}  ${speaking_quiz_type}
-
+    click element    //*[@id="list"]/li[1]/p
+    click element    //*[@id="navigation-row"]/span[2]
+    ${grammarTypeSecondpopup}     get text    //*[@id="page-3"]/p
+    should be equal as strings    ${grammarTypeSecondpopup}     ${grammar_type_second_popup}
+    click element    //*[@id="navigation-row"]/span[2]
+    ${grammarTypeThirdPopup}    get text    //*[@id="page-4"]/p
+    should be equal as strings    ${grammarTypeThirdPopup}  ${grammar_type_third_popup}
+    click element    //*[@id="navigation-row"]/span[2]
+    ${grammarTypeFourthPopup}   get text    //*[@id="page-5"]/p
+    should be equal as strings  ${grammarTypeFourthPopup}   ${grammar_type_fourth_popup}
+    click element    //*[@id="navigation-row"]/span[2]
+    page should contain element    //*[contains(text(),"Created successfully")]
+    element should be visible    //*[contains(text(),"Created successfully")]
+    click element    //*[@id="more"]
+    click element    //*[@id="list"]/li[2]/p
+    click element    //*[@id="navigation-row"]/span[2]
+    ${unseenTypeSecondpopup}     get text    //*[@id="page-3"]/p
+    should be equal as strings    ${grammarTypeSecondpopup}     ${unseenTypeSecondpopup}
+    input text      //*[@id="scroll-wrapper"]/form/textarea     ${unseen_type_second_popup_text}
+    click element    //*[@id="navigation-row"]/span[2]
+    sleep    5
+    click element    //*[@id="navigation-row"]/span[2]
+    click element    //*[@id="navigation-row"]/span[2]
+    page should contain element    //*[contains(text(),"Created successfully")]
+    click element    //*[@id="more"]
+    click element    //*[@id="list"]/li[3]/p
+    click element    //*[@id="navigation-row"]/span[2]
+    ${fillBlanksSecondPopup}    get text    //*[@id="page-2"]/p
+    should be equal as strings    ${fillBlanksSecondPopup}      ${word_pause_second_popup}
+    click element    //*[@id="navigation-row"]/span[2]
+    ${fillBlanksThirdPopup}     get text    //*[@id="page-5"]/p
+    should be equal as strings    ${fillBlanksThirdPopup}   ${grammar_type_fourth_popup}
+    click element    //*[@id="navigation-row"]/span[2]
+    page should contain element    //*[contains(text(),"Created successfully")]
+    click element    //*[@id="more"]
+    click element    //*[@id="list"]/li[4]/p
+    click element    //*[@id="navigation-row"]/span[2]
+    ${wordPauseSecondPopup}     get text    //*[@id="page-2"]/p
+    should be equal as strings    ${word_pause_second_popup}    ${wordPauseSecondPopup}
+    click element    //*[@id="navigation-row"]/span[2]
+    ${wordPauseThirdPopup}      get text    //*[@id="page-5"]/p
+    should be equal as strings    ${grammar_type_fourth_popup}      ${wordPauseThirdPopup}
+    click element    //*[@id="navigation-row"]/span[2]
+    page should contain element    //*[contains(text(),"Created successfully")]
+    click element    //*[@id="more"]
+    click element    //*[@id="list"]/li[5]/p
+    click element    //*[@id="navigation-row"]/span[2]
+    ${vocabularyQuizSecondPopup}    get text    //*[@id="page-6"]/p[1]
+    should be equal as strings    ${vocabulary_quiz_second_popup}   ${vocabularyQuizSecondPopup}
+    click element    //*[@id="navigation-row"]/span[2]
+    page should contain element    //*[contains(text(),"Created successfully")]
+    page should contain element    //*[contains(text(),"Send lesson")]
+    element should be visible    //*[contains(text(),"Send lesson")]
+    page should contain element    //*[contains(text(),"See lesson")]
+    element should be visible    //*[contains(text(),"See lesson")]
+    click element    //*[@id="sidenav"]/ul/li[4]/p
+    page should contain element    //*[contains(text(),"lessons found")]
+    element should be visible    //*[contains(text(),"lessons found")]
+    click element    //*[@id="gallery"]/app-lesson-card[1]/div/div[1]
+    page should contain element    //*[contains(text(),"Use lesson")]
+    page should contain element    //*[@id="main-details"]/div[1]/button[2]
+    page should contain element    //*[@id="main-details"]/div[1]/button[3]
+    page should contain element    //*[contains(text(),"Difficulty")]
+    page should contain element    //*[contains(text(),"Age grade")]
+    page should contain element    //*[contains(text(),"Words")]
+    page should contain element    //*[contains(text(),"Duration")]
+    page should contain element    //*[contains(text(),"More from the same teacher")]
+    page should contain element    //*[contains(text(),"Comments")]
 
 *** Variables ***
 ${title}    Testing Lesson
@@ -151,4 +218,11 @@ ${fill_blanks_type}     Fill blanks
 ${word_pause_type}      Word-pause
 ${vocabulary_quiz_type}      Vocabulary quiz
 ${speaking_quiz_type}        Speaking quiz
+${grammar_type_second_popup}     Select the base text for the questions
+${grammar_type_third_popup}       Select the questions you want to use or create your own
+${grammar_type_fourth_popup}    Review your work
+${grammar_type_success_message}     Created successfully
+${unseen_type_second_popup_text}    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit
+${word_pause_second_popup}      Select words from the lyrics you want to use
+${vocabulary_quiz_second_popup}     Create a quiz
 
