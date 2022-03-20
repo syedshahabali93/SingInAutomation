@@ -1,10 +1,12 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ./SideNavBar.robot
 
 *** Keywords ***
 Settings view section
     [documentation]    Verify settings page exists and user is able to view songs and perform actions
-    click element    //*[@id="sidenav"]/ul/li[5]
+
+    Settings
     page should contain element    //*[contains(text(),"First name")]
     element should be visible    //*[contains(text(),"First name")]
     page should contain element    //*[contains(text(),"Last name")]

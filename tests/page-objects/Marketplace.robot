@@ -1,14 +1,23 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ./SideNavBar.robot
 Documentation    This section contains all the test cases related to Marketplace page/functionality.
+Library    SeleniumLibrary
 
 *** Keywords ***
+
 Marketplace view section
     [documentation]    Verify marketplace page exists and user is able to view songs and perform actions
+
+    Marketplace
     page should contain element    //*[@id="wrapper"]/div[1]/h1
     element should be visible    //*[@id="wrapper"]/div[1]/h1
     ${marketplace}      get text    //*[@id="wrapper"]/div[1]/h1
     should be equal as strings    ${marketplace}    ${market_place}
+
+Create Lesson - Marketplace
+    [documentation]    Verify create lesson functionality is working correctly
+
     page should contain element    //*[contains(text(),"Create a lesson")]
     element should be visible    //*[contains(text(),"Create a lesson")]
     click button    //*[contains(text(),"Create a lesson")]
@@ -43,12 +52,20 @@ Marketplace view section
     click button    //*[contains(text(),"Save")]
     page should contain element    //*[contains(text(),"Lesson createed successfully.")]
     element should be visible    //*[contains(text(),"Lesson createed successfully.")]
+
+Verify lesson view page details - Marketplace
+    [documentation]    Verify fields are present on lesson view page
+
     page should contain element    //*[@id="main-details"]/h1
     element should be visible    //*[@id="main-details"]/h1
     ${createdLessonName}    get text    //*[@id="main-details"]/h1
     should be equal as strings    ${createdLessonName}      ${title}
     page should contain element    //*[contains(text(),"Edit")]
     element should be visible    //*[contains(text(),"Edit")]
+
+Use lesson pop-up - Marketplace
+    [documentation]    Verify Use lesson pop-up fields
+
     page should contain element    //*[contains(text(),"Use lesson")]
     element should be visible    //*[contains(text(),"Use lesson")]
     click button    //*[contains(text(),"Use lesson")]
@@ -64,12 +81,20 @@ Marketplace view section
     element should be visible    //*[@id="wrapper"]/div[3]/button[1]
     page should contain element    //*[contains(text(),"Cancel")]
     element should be visible    //*[contains(text(),"Cancel")]
+
+Edit lesson pop-up - Marketplace
+    [documentation]    Verify Edit lesson pop-up fields
+
     click button    //*[@id="wrapper"]/div[1]/span[2]
     page should contain element    //*[contains(text(),"Continue")]
     element should be visible    //*[contains(text(),"Continue")]
     page should contain element    //*[contains(text(),"Cancel")]
     element should be visible    //*[contains(text(),"Cancel")]
     press keys    None      ESC
+
+Like lesson functionality test - Markeplace
+    [documentation]    Verify like button is working correclty
+
     page should contain element    //*[@id="main-details"]/div[1]/button[2]
     element should be visible    //*[@id="main-details"]/div[1]/button[2]
     ${likeElementText}   get text    //*[@id="main-details"]/div[1]/button[2]
@@ -77,11 +102,19 @@ Marketplace view section
     click button    //*[@id="main-details"]/div[1]/button[2]
     ${like_count_new}   get text    //*[@id="main-details"]/div[1]/button[2]
     should be true    ${like_count_new}==${like_count_old-1}
+
+Dislike lesson functionality test - Marketplace
+    [documentation]    Verify dislike button is working correctly
+
     ${dislike_element_text}     get text    //*[@id="main-details"]/div[1]/button[3]
     ${dislike_count_old}    evaluate    "${dislike_element_text}".split(" ")[1]
     click button    //*[@id="main-details"]/div[1]/button[3]
     ${dislike_count_new}    get text    //*[@id="main-details"]/div[1]/button[3]
     should be true    ${dislike_count_new}==${dislike_count_old-1}
+
+Edit lesson - Marketplace
+    [documentation]    Verify edit lesson functionality is working
+
     click element    //*[contains(text(),"Edit")]
     page should contain element    //*[contains(text(),"Edit lesson")]
     element should be visible    //*[contains(text(),"Edit lesson")]
@@ -98,6 +131,10 @@ Marketplace view section
     click button    //*[contains(text(),"Save")]
     page should contain element    //*[contains(text(),"Lesson updated successfully.")]
     element should be visible    //*[contains(text(),"Lesson updated successfully.")]
+
+Verify edited lesson details - Marketplace
+    [documentation]    Verify updated details are saved and showing after lesson has been edited
+
     ${createdLessonName}    get text    //*[@id="main-details"]/h1
     should be equal as strings    ${createdLessonName}      ${updated_title}
     ${updatedDescription}   get text    //*[@id="description"]
@@ -108,6 +145,10 @@ Marketplace view section
     should be equal as strings    ${ageGrade}
     ${difficulty}   get text    //*[@id="stats-row"]/div[1]
     should be equal as strings    ${difficulty}     ${difficuly_text}
+
+All assignment types - Edit Lesson - Marketplace
+    [documentation]    Verify all assignment types in Edit lesson and their creation flow
+
     click element    //*[contains(text(),"Edit")]
     click element    //*[@id="more"]
     ${assignmentType}   get text    //*[@id="page-1"]/p
@@ -179,7 +220,11 @@ Marketplace view section
     element should be visible    //*[contains(text(),"Send lesson")]
     page should contain element    //*[contains(text(),"See lesson")]
     element should be visible    //*[contains(text(),"See lesson")]
-    click element    //*[@id="sidenav"]/ul/li[4]/p
+
+Verify marketplace main page fields
+    [documentation]    Verify marketplace main page fields
+
+    Marketplace
     page should contain element    //*[contains(text(),"lessons found")]
     element should be visible    //*[contains(text(),"lessons found")]
     click element    //*[@id="gallery"]/app-lesson-card[1]/div/div[1]
@@ -225,4 +270,3 @@ ${grammar_type_success_message}     Created successfully
 ${unseen_type_second_popup_text}    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus. Nullam accumsan lorem in dui. Cras ultricies mi eu turpis hendrerit fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit
 ${word_pause_second_popup}      Select words from the lyrics you want to use
 ${vocabulary_quiz_second_popup}     Create a quiz
-

@@ -1,8 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    SeleniumLibrary
 Documentation    This section contains all the test cases related to Dashboard page/functionality.
-Library    SeleniumLibrary
 
 *** Keywords ***
 
@@ -13,7 +11,7 @@ Dashboard Test
     page should contain element    //*[@id="wrapper"]/div[1]/h1
     element should be visible    //*[@id="wrapper"]/div[1]/h1
     ${overview}     get text    //*[@id="wrapper"]/div[1]/h1
-    should be equal as strings    ${overview}   Overview
+    should be equal as strings    ${overview}   ${dashboard_heading_text}
     page should contain element    //*[contains(text(), 'students currently logged in')]
     element should be visible    //*[contains(text(), 'students currently logged in')]
     page should contain element    //*[contains(text(), 'Users are active now')]
@@ -41,3 +39,6 @@ Dashboard Test
 #    click element    //*[@id="account"]/div[2]/span
 #    ${dashboard_login}      get text    //*[@id="main-content"]/app-login/div/form/h1
 #    should be equal as strings    ${dashboard_login}    Dashboard login
+
+*** Variables ***
+${dashboard_heading_text}    Overview

@@ -4,12 +4,14 @@ Resource    ../Resources/CommonFunctionality.robot
 Resource    ./page-objects/Login.robot
 Resource    ./page-objects/Dashboard.robot
 Resource    ./page-objects/Classes.robot
+Resource    ./page-objects/Assignments.robot
+Resource    ./page-objects/Marketplace.robot
+Resource    ./page-objects/Settings.robot
+Resource    ./page-objects/SideNavBar.robot
+Resource    ./page-objects/UpdateTrack.robot
+Resource    ./page-objects/UserMessages.robot
 
 *** Test Cases ***
-
-Begin
-    CommonFunctionality.Start Test
-
 #Tests for Login Functionality
 Login
     Login Test
@@ -35,5 +37,5 @@ Classes
     In three vertical dots - Remove Group - Test Cancel button
     In three vertical dots - Remove Group - Test Remove button
 
-End
-    CommonFunctionality.End Test
+#Tests for Marketplace Section
+

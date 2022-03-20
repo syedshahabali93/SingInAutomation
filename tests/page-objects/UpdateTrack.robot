@@ -1,9 +1,11 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ./SideNavBar.robot
 
 *** Keywords ***
     [documentation]    Verify assignments page exists and user is able to view assignments and perform actions
-    click element    //*[@id="sidenav"]/ul/li[7]
+
+    UpdateTrack
     ${trackUpdate}  get text    //*[@id="wrapper"]/div[1]/h1
     should be equal as strings    ${trackUpdate}    ${update_track}
     page should contain element    //*[contains(text(),"Search song")]
