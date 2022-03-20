@@ -22,7 +22,7 @@ Resource    ./SideNavBar.robot
     element should be visible    //*[contains(text(),"Explicit cover")]
     page should contain element    //*[contains(text(),"Save")]
     element should be visible    //*[contains(text(),"Save")]
-    input text    //*[contains(text(),"Search song")]   ${search_song}
+    input text    //*[contains(text(),"Search song")]   %{track_name}
     click element    //*[contains(text(),"${song_name}")]
     input text    //*[contains(text(),"Title")]     ${title}
     input text    //*[contains(text(),"YouTube ID")]    ${youtubeid}
@@ -33,7 +33,6 @@ Resource    ./SideNavBar.robot
 
 *** Variables ***
 ${update_track}     Track Update
-${search_song}      Shonen
 ${song_name}   Shonen -
 ${title}   Testing Song
 ${youtubeId}   432543

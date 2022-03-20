@@ -41,9 +41,9 @@ Create Lesson - Marketplace
     element should be visible    //*[contains(text(),"Save")]
     input text    //*[contains(text(),"Title")]     ${title}
     input text    //*[contains(text(),"Description")]       ${description}
-    input text    //*[contains(text(),"Search song")]       ${song_name}
+    input text    //*[contains(text(),"Search song")]       %{track_name}
     sleep    2
-    click element    //*[contains(text(),"Shonen - Orelsan")]
+    click element    //*[contains(text(),"%{track_name} - Orelsan")]
     input text    //*[contains(text(),"Difficulty")]    ${difficulty_easy}
     input text    //*[contains(text(),"Duration")]      ${duration}
     input text    //*[contains(text(),"Age grade")]     ${age_grade}
@@ -120,9 +120,9 @@ Edit lesson - Marketplace
     element should be visible    //*[contains(text(),"Edit lesson")]
     input text    //*[contains(text(),"Title")]     ${updated_title}
     input text    //*[contains(text(),"Description")]       ${updated_description}
-    input text    //*[contains(text(),"Search song")]       ${song_name}
+    input text    //*[contains(text(),"Search song")]       %{track_name}
     sleep    2
-    click element    //*[contains(text(),"Shonen - Orelsan")]
+    click element    //*[contains(text(),"%{track_name} - Orelsan")]
     input text    //*[contains(text(),"Difficulty")]    ${difficulty_regular}
     input text    //*[contains(text(),"Duration")]      ${duration_updated}
     input text    //*[contains(text(),"Age grade")]     ${updated_age_grade}
@@ -243,7 +243,6 @@ ${title}    Testing Lesson
 ${updated_title}    Lesson Testing
 ${description}  Testing Description
 ${updated_description}  Description Testing
-${song_name}    Shonen
 ${difficulty_easy}  Easy
 ${difficulty_regular}   Regular
 ${duration}     5 minutes

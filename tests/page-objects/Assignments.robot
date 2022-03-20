@@ -58,9 +58,9 @@ Send Song - Assignment
     element should be visible    //*[contains(text(),"Notes (Optional)")]
     page should contain element    //*[contains(text(),"Next")]
     element should be visible    //*[contains(text(),"Next")]
-    input text    //*[contains(text(),"Track")]     ${track_name}
+    input text    //*[contains(text(),"Track")]     %{track_name}
     sleep    2
-    click element    //*[contains(text(),"Shonen - Orelsan")]
+    click element    //*[contains(text(),"%{track_name} - Orelsan")]
     input text    //*[contains(text(),"Group")]     ${group_field_text}
     click button    //*[contains(text(),"Next")]
     page should contain element    //*[contains(text(),"Select lyrics")]
