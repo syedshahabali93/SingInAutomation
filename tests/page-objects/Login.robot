@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Documentation    This section contains all the test cases related to Login page/functionality.
-Library    SeleniumLibrary
 Variables    ../../Locators/Login.py
 
 *** Keywords ***

@@ -2,105 +2,108 @@
 Library    SeleniumLibrary
 Resource    ./SideNavBar.robot
 Documentation    This section contains all the test cases related to Assignments page/functionality.
-Library    SeleniumLibrary
+Variables    ../../Locators/Assignments.py
 
 *** Keywords ***
 Assignments View Section
     [documentation]    Verify assignments page exists and user is able to view assignments and perform actions
 
     Assignments
-    page should contain element    //*[@id="filter"]/div/span
-    element should be visible    //*[@id="filter"]/div/span
-    page should contain element    //*[contains(text(),"Create new")]
-    element should be visible    //*[contains(text(),"Create new")]
+    ${assignmentsHeadingText}   get text    AssignmentsHeadingLocator
+    should be equal as strings    ${assignmentsHeadingText}     ${assignments_heading_text}
+    page should contain element    AssignmentsAllButtonLocator
+    element should be visible    AssignmentsAllButtonLocator
+    page should contain element    AssignmentsCreateNewButtonLocator
+    element should be visible    AssignmentsCreateNewButtonLocator
 #    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[1]
 #    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[1]
-    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[2]
-    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[2]
-    ${description}  get text    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[2]
+    page should contain element    AssignmentsDescriptionColumnHeadingLocator
+    element should be visible    AssignmentsDescriptionColumnHeadingLocator
+    ${description}  get text    AssignmentsDescriptionColumnHeadingLocator
     should be equal as strings    ${description}    ${table_first_column_text}
-    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[3]
-    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[3]
-    ${type}     get text    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[3]
+    page should contain element    AssignmentsTypeColumnHeadingLocator
+    element should be visible    AssignmentsTypeColumnHeadingLocator
+    ${type}     get text    AssignmentsTypeColumnHeadingLocator
     should be equal as strings    ${type}   ${table_second_column_text}
-    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[4]
-    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[4]
-    ${sent}     get text    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[4]
+    page should contain element    AssignmentsSentColumnHeadingLocator
+    element should be visible    AssignmentsSentColumnHeadingLocator
+    ${sent}     get text    AssignmentsSentColumnHeadingLocator
     should be equal as strings    ${sent}   ${table_third_column_text}
-    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[5]
-    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[5]
-    ${sent_to}  get text    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[5]
+    page should contain element    AssignmentsSentToColumnHeadingLocator
+    element should be visible    AssignmentsSentToColumnHeadingLocator
+    ${sent_to}  get text    AssignmentsSentToColumnHeadingLocator
     should be equal as strings    ${sent_to}    ${table_fourth_column_text}
-    page should contain element    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[6]
-    element should be visible    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[6]
-    ${opened}   get text    //*[@id="wrapper"]/app-assignments-table/div/table/tr[1]/th[6]
+    page should contain element    AssignmentsOpenedColumnHeadingLocator
+    element should be visible    AssignmentsOpenedColumnHeadingLocator
+    ${opened}   get text    AssignmentsOpenedColumnHeadingLocator
     should be equal as strings    ${opened}     ${table_fifth_column_text}
 
 Create New - Assignment
     [documentation]    Testing create new button functionality on Assignments page
 
-    click button        //*[contains(text(),"Create new")]
-    page should contain element    //*[contains(text(),"Send a song")]
-    element should be visible    //*[contains(text(),"Send a song")]
-    page should contain element    //*[contains(text(),"Send a word")]
-    element should be visible    //*[contains(text(),"Send a word")]
+    click button        AssignmentsCreateNewButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongButtonLocator
+    page should contain element    AssignmentsCreateNewSendWordButtonLocator
+    element should be visible    AssignmentsCreateNewSendWordButtonLocator
 
 Send Song - Assignment
     [documentation]    Verify send song fields are present and functionality is working correctly
 
-    page should contain element    //*[contains(text(),"Send a song")]
-    element should be visible    //*[contains(text(),"Send a song")]
-    page should contain element    //*[contains(text(),"Track")]
-    element should be visible    //*[contains(text(),"Track")]
-    page should contain element    //*[contains(text(),"Group")]
-    element should be visible    //*[contains(text(),"Group")]
-    page should contain element    //*[contains(text(),"Notes (Optional)")]
-    element should be visible    //*[contains(text(),"Notes (Optional)")]
-    page should contain element    //*[contains(text(),"Next")]
-    element should be visible    //*[contains(text(),"Next")]
-    input text    //*[contains(text(),"Track")]     %{track_name}
+    page should contain element    AssignmentsCreateNewSendSongButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongTrackFieldLocator
+    element should be visible    AssignmentsCreateNewSendSongTrackFieldLocator
+    page should contain element    AssignmentsCreateNewSendSongGroupFieldLocator
+    element should be visible    AssignmentsCreateNewSendSongGroupFieldLocator
+    page should contain element    AssignmentsCreateNewSendSongNotesFieldLocator
+    element should be visible    AssignmentsCreateNewSendSongNotesFieldLocator
+    page should contain element    AssignmentsCreateNewSendSongNextButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongNextButtonLocator
+    input text    AssignmentsCreateNewSendSongTrackFieldLocator     %{track_name}
     sleep    2
     click element    //*[contains(text(),"%{track_name} - Orelsan")]
-    input text    //*[contains(text(),"Group")]     ${group_field_text}
-    click button    //*[contains(text(),"Next")]
-    page should contain element    //*[contains(text(),"Select lyrics")]
-    element should be visible    //*[contains(text(),"Select lyrics")]
-    page should contain element    //*[contains(text(),"Submit")]
-    element should be visible    //*[contains(text(),"Submit")]
-    click button    //*[contains(text(),"Submit")]
-    page should contain element    //*[contains(text(),"Review your work")]
-    element should be visible    //*[contains(text(),"Review your work")]
-    page should contain element    //*[contains(text(),"Cancel")]
-    element should be visible    //*[contains(text(),"Cancel")]
-    page should contain element    //*[@id="actions"]/button[1]
-    element should be visible    //*[@id="actions"]/button[1]
-    click button    //*[@id="actions"]/button[1]
-    page should contain element    //*[contains(text(),"Song sent successfully")]
-    element should be visible    //*[contains(text(),"Song sent successfully")]
+    input text    AssignmentsCreateNewSendSongGroupFieldLocator     ${group_field_text}
+    click button    AssignmentsCreateNewSendSongNextButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongSelectLyricsLocator
+    element should be visible    AssignmentsCreateNewSendSongSelectLyricsLocator
+    page should contain element    AssignmentsCreateNewSendSongSubmitButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongSubmitButtonLocator
+    click button    AssignmentsCreateNewSendSongSubmitButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongReviewWorkHeadingLocator
+    element should be visible    AssignmentsCreateNewSendSongReviewWorkHeadingLocator
+    page should contain element    AssignmentsCreateNewSendSongCancelButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongCancelButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongSendButtonLocator
+    element should be visible    AssignmentsCreateNewSendSongSendButtonLocator
+    click button    AssignmentsCreateNewSendSongSendButtonLocator
+    page should contain element    AssignmentsCreateNewSendSongSuccessMessageLocator
+    element should be visible    AssignmentsCreateNewSendSongSuccessMessageLocator
 
 Send a word - Assignment
     [documentation]    Verify send word fields are present and functionality is working correctly
 
-    click button        //*[contains(text(),"Create new")]
-    click element    //*[contains(text(),"Send a word")]
-    page should contain element    //*[contains(text(),"Send words")]
-    element should be visible    //*[contains(text(),"Send words")]
-    page should contain element    //*[contains(text(),"Your words")]
-    element should be visible    //*[contains(text(),"Your words")]
-    page should contain element    //*[contains(text(),"Group")]
-    element should be visible    //*[contains(text(),"Group")]
-    page should contain element    //*[contains(text(),"Notes (Optional)")]
-    element should be visible    //*[contains(text(),"Notes (Optional)")]
-    page should contain element    //app-send-word/form/button
-    element should be visible    //app-send-word/form/button
-    input text    //*[contains(text(),"Send words")]    ${words_field_text}
+    click button        AssignmentsCreateNewButtonLocator
+    click element    AssignmentsCreateNewSendWordButtonLocator
+    page should contain element    AssignmentsCreateNewSendWordHeadingLocator
+    element should be visible    AssignmentsCreateNewSendWordHeadingLocator
+    page should contain element    AssignmentsCreateNewSendWordYourWordsFieldLocator
+    element should be visible    AssignmentsCreateNewSendWordYourWordsFieldLocator
+    page should contain element    AssignmentsCreateNewSendWordGroupFieldLocator
+    element should be visible    AssignmentsCreateNewSendWordGroupFieldLocator
+    page should contain element    AssignmentsCreateNewSendWordNotesFieldLocator
+    element should be visible    AssignmentsCreateNewSendWordNotesFieldLocator
+    page should contain element    AssignmentsCreateNewSendWordSendButtonLocator
+    element should be visible    AssignmentsCreateNewSendWordSendButtonLocator
+    input text    AssignmentsCreateNewSendWordYourWordsFieldLocator    ${words_field_text}
     press keys    None      ENTER
-    input text    //*[contains(text(),"Group")]     ${group_field_text}
-    click element    //app-send-words/form/button
-    page should contain element    //*[contains(text(),"Your words were sent successfully")]
-    element should be visible    //*[contains(text(),"Your words were sent successfully")]
+    input text    AssignmentsCreateNewSendWordGroupFieldLocator     ${group_field_text}
+    click element    AssignmentsCreateNewSendWordSendButtonLocator
+    page should contain element    AssignmentsCreateNewSendWordSuccessMessageLocator
+    element should be visible    AssignmentsCreateNewSendWordSuccessMessageLocator
 
 *** Variables ***
+${assignments_heading_text}     Assignments
 ${table_first_column_text}      Description
 ${table_second_column_text}     Type
 ${table_third_column_text}      Sent

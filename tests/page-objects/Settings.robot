@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ./SideNavBar.robot
-Variables    ../../Locators/Login.py
+Variables    ../../Locators/Settings.py
 
 *** Keywords ***
 Settings view section

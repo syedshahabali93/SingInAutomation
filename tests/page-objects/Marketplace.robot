@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Resource    ./SideNavBar.robot
 Documentation    This section contains all the test cases related to Marketplace page/functionality.
+Variables    ../../Locators/MarketPlace.py
 Library    SeleniumLibrary
 
 *** Keywords ***
@@ -10,233 +11,233 @@ Marketplace view section
     [documentation]    Verify marketplace page exists and user is able to view songs and perform actions
 
     Marketplace
-    page should contain element    //*[@id="wrapper"]/div[1]/h1
-    element should be visible    //*[@id="wrapper"]/div[1]/h1
-    ${marketplace}      get text    //*[@id="wrapper"]/div[1]/h1
+    page should contain element    (//*[text()='Marketplace'])[2]
+    element should be visible    (//*[text()='Marketplace'])[2]
+    ${marketplace}      get text    (//*[text()='Marketplace'])[2]
     should be equal as strings    ${marketplace}    ${market_place}
 
 Create Lesson - Marketplace
     [documentation]    Verify create lesson functionality is working correctly
 
-    page should contain element    //*[contains(text(),"Create a lesson")]
-    element should be visible    //*[contains(text(),"Create a lesson")]
-    click button    //*[contains(text(),"Create a lesson")]
-    page should contain element    //*[contains(text(),"Title")]
-    element should be visible    //*[contains(text(),"Title")]
-    page should contain element    //*[contains(text(),"Description")]
-    element should be visible    //*[contains(text(),"Description")]
-    page should contain element    //*[contains(text(),"Search song")]
-    element should be visible    //*[contains(text(),"Search song")]
-    page should contain element    //*[contains(text(),"Difficulty")]
-    element should be visible    //*[contains(text(),"Difficulty")]
-    page should contain element    //*[contains(text(),"Duration")]
-    element should be visible    //*[contains(text(),"Duration")]
-    page should contain element    //*[contains(text(),"Age grade")]
-    element should be visible    //*[contains(text(),"Age grade")]
-    page should contain element    //*[contains(text(),"Learned words")]
-    element should be visible    //*[contains(text(),"Learned words")]
-    page should contain element    //*[contains(text(),"Make public")]
-    element should be visible    //*[contains(text(),"Make public")]
-    page should contain element    //*[contains(text(),"Save")]
-    element should be visible    //*[contains(text(),"Save")]
-    input text    //*[contains(text(),"Title")]     ${title}
-    input text    //*[contains(text(),"Description")]       ${description}
-    input text    //*[contains(text(),"Search song")]       %{track_name}
+    page should contain element    MarketplaceCreateALessonButtonLocator
+    element should be visible    MarketplaceCreateALessonButtonLocator
+    click button    MarketplaceCreateALessonButtonLocator
+    page should contain element    MarketplaceCreateALessonTitleFieldLocator
+    element should be visible    MarketplaceCreateALessonTitleFieldLocator
+    page should contain element    MarketplaceCreateALessonDescriptionFieldLocator
+    element should be visible    MarketplaceCreateALessonDescriptionFieldLocator
+    page should contain element    MarketplaceCreateALessonSearchSongFieldLocator
+    element should be visible    MarketplaceCreateALessonSearchSongFieldLocator
+    page should contain element    MarketplaceCreateALessonDifficultyFieldLocator
+    element should be visible    MarketplaceCreateALessonDifficultyFieldLocator
+    page should contain element    MarketplaceCreateALessonDurationFieldLocator
+    element should be visible    MarketplaceCreateALessonDurationFieldLocator
+    page should contain element    MarketplaceCreateALessonAgeGradeFieldLocator
+    element should be visible    MarketplaceCreateALessonAgeGradeFieldLocator
+    page should contain element    MarketplaceCreateALessonLearnedWordsFieldLocator
+    element should be visible    MarketplaceCreateALessonLearnedWordsFieldLocator
+    page should contain element    MarketplaceCreateALessonMakePublicFieldLocator
+    element should be visible    MarketplaceCreateALessonMakePublicFieldLocator
+    page should contain element    MarketplaceCreateALessonSaveButtonLocator
+    element should be visible    MarketplaceCreateALessonSaveButtonLocator
+    input text    MarketplaceCreateALessonTitleFieldLocator     ${title}
+    input text    MarketplaceCreateALessonDescriptionFieldLocator       ${description}
+    input text    MarketplaceCreateALessonSearchSongFieldLocator       %{track_name}
     sleep    2
     click element    //*[contains(text(),"%{track_name} - Orelsan")]
-    input text    //*[contains(text(),"Difficulty")]    ${difficulty_easy}
-    input text    //*[contains(text(),"Duration")]      ${duration}
-    input text    //*[contains(text(),"Age grade")]     ${age_grade}
-    input text    //*[contains(text(),"Learned words")]     ${learned_words}
+    input text    MarketplaceCreateALessonDifficultyFieldLocator    ${difficulty_easy}
+    input text    MarketplaceCreateALessonDurationFieldLocator      ${duration}
+    input text    MarketplaceCreateALessonAgeGradeFieldLocator     ${age_grade}
+    input text    MarketplaceCreateALessonLearnedWordsFieldLocator     ${learned_words}
     press keys    None      ENTER
-    click button    //*[contains(text(),"Save")]
-    page should contain element    //*[contains(text(),"Lesson createed successfully.")]
-    element should be visible    //*[contains(text(),"Lesson createed successfully.")]
+    click button    MarketplaceCreateALessonSaveButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedSuccessMessageLocator
+    element should be visible    MarketplaceCreateALessonCreatedSuccessMessageLocator
 
 Verify lesson view page details - Marketplace
     [documentation]    Verify fields are present on lesson view page
 
-    page should contain element    //*[@id="main-details"]/h1
-    element should be visible    //*[@id="main-details"]/h1
-    ${createdLessonName}    get text    //*[@id="main-details"]/h1
+    page should contain element    MarketplaceCreateALessonCreatedLessonHeadingLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonHeadingLocator
+    ${createdLessonName}    get text    MarketplaceCreateALessonCreatedLessonHeadingLocator
     should be equal as strings    ${createdLessonName}      ${title}
-    page should contain element    //*[contains(text(),"Edit")]
-    element should be visible    //*[contains(text(),"Edit")]
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewEditButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewEditButtonLocator
 
 Use lesson pop-up - Marketplace
     [documentation]    Verify Use lesson pop-up fields
 
-    page should contain element    //*[contains(text(),"Use lesson")]
-    element should be visible    //*[contains(text(),"Use lesson")]
-    click button    //*[contains(text(),"Use lesson")]
-    page should contain element    //*[contains(text(),"Keep")]
-    element should be visible    //*[contains(text(),"Keep")]
-    page should contain element    //*[@id="wrapper"]/div[1]/span[2]
-    element should be visible    //*[@id="wrapper"]/div[1]/span[2]
-    ${edit}     get text    //*[@id="wrapper"]/div[1]/span[2]
-    should be equal as strings    //*[@id="wrapper"]/div[1]/span[2]     ${edit_text}
-    page should contain element    //*[contains(text(),"Group")]
-    element should be visible    //*[contains(text(),"Group")]
-    page should contain element    //*[@id="wrapper"]/div[3]/button[1]
-    element should be visible    //*[@id="wrapper"]/div[3]/button[1]
-    page should contain element    //*[contains(text(),"Cancel")]
-    element should be visible    //*[contains(text(),"Cancel")]
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonButtonLocator
+    click button    MarketplaceCreateALessonCreatedLessonViewUseLessonButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonKeepButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonKeepButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonEditButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonEditButtonLocator
+    ${edit}     get text    MarketplaceCreateALessonCreatedLessonViewUseLessonEditButtonLocator
+    should be equal as strings    ${edit}     ${edit_text}
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonGroupFieldLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonGroupFieldLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonSendButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonSendButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonCancelButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonCancelButtonLocator
 
 Edit lesson pop-up - Marketplace
     [documentation]    Verify Edit lesson pop-up fields
 
-    click button    //*[@id="wrapper"]/div[1]/span[2]
-    page should contain element    //*[contains(text(),"Continue")]
-    element should be visible    //*[contains(text(),"Continue")]
-    page should contain element    //*[contains(text(),"Cancel")]
-    element should be visible    //*[contains(text(),"Cancel")]
+    click button    MarketplaceCreateALessonCreatedLessonViewUseLessonEditButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonEditPopupContinueButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonEditPopupContinueButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewUseLessonEditPopupCancelButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewUseLessonEditPopupCancelButtonLocator
     press keys    None      ESC
 
 Like lesson functionality test - Markeplace
     [documentation]    Verify like button is working correclty
 
-    page should contain element    //*[@id="main-details"]/div[1]/button[2]
-    element should be visible    //*[@id="main-details"]/div[1]/button[2]
-    ${likeElementText}   get text    //*[@id="main-details"]/div[1]/button[2]
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
+    ${likeElementText}   get text    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
     ${like_count_old}   evaluate    "${likeElementText}".split(" ")[1]
-    click button    //*[@id="main-details"]/div[1]/button[2]
-    ${like_count_new}   get text    //*[@id="main-details"]/div[1]/button[2]
+    click button    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
+    ${like_count_new}   get text    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
     should be true    ${like_count_new}==${like_count_old-1}
 
 Dislike lesson functionality test - Marketplace
     [documentation]    Verify dislike button is working correctly
 
-    ${dislike_element_text}     get text    //*[@id="main-details"]/div[1]/button[3]
+    ${dislike_element_text}     get text    MarketplaceCreateALessonCreatedLessonViewDislikeButtonLocator
     ${dislike_count_old}    evaluate    "${dislike_element_text}".split(" ")[1]
-    click button    //*[@id="main-details"]/div[1]/button[3]
-    ${dislike_count_new}    get text    //*[@id="main-details"]/div[1]/button[3]
+    click button    MarketplaceCreateALessonCreatedLessonViewDislikeButtonLocator
+    ${dislike_count_new}    get text    MarketplaceCreateALessonCreatedLessonViewDislikeButtonLocator
     should be true    ${dislike_count_new}==${dislike_count_old-1}
 
 Edit lesson - Marketplace
     [documentation]    Verify edit lesson functionality is working
 
-    click element    //*[contains(text(),"Edit")]
-    page should contain element    //*[contains(text(),"Edit lesson")]
-    element should be visible    //*[contains(text(),"Edit lesson")]
-    input text    //*[contains(text(),"Title")]     ${updated_title}
-    input text    //*[contains(text(),"Description")]       ${updated_description}
-    input text    //*[contains(text(),"Search song")]       %{track_name}
+    click element    MarketplaceCreateALessonCreatedLessonViewEditButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewEditLessonHeadingLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewEditLessonHeadingLocator
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonTitleFieldLocator     ${updated_title}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonDescriptionFieldLocator       ${updated_description}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonSearchSongFieldLocator       %{track_name}
     sleep    2
     click element    //*[contains(text(),"%{track_name} - Orelsan")]
-    input text    //*[contains(text(),"Difficulty")]    ${difficulty_regular}
-    input text    //*[contains(text(),"Duration")]      ${duration_updated}
-    input text    //*[contains(text(),"Age grade")]     ${updated_age_grade}
-    input text    //*[contains(text(),"Learned words")]     ${updated_learned_words}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonDifficultyFieldLocator    ${difficulty_regular}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonDurationFieldLocator      ${duration_updated}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonAgeGradeFieldLocator     ${updated_age_grade}
+    input text    MarketplaceCreateALessonCreatedLessonViewEditLessonLearnedWordsFieldLocator     ${updated_learned_words}
     press keys    None      ENTER
-    click button    //*[contains(text(),"Save")]
-    page should contain element    //*[contains(text(),"Lesson updated successfully.")]
-    element should be visible    //*[contains(text(),"Lesson updated successfully.")]
+    click button    MarketplaceCreateALessonCreatedLessonViewEditLessonSaveButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewEditLessonUpdatedSuccessMessageLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewEditLessonUpdatedSuccessMessageLocator
 
 Verify edited lesson details - Marketplace
     [documentation]    Verify updated details are saved and showing after lesson has been edited
 
-    ${createdLessonName}    get text    //*[@id="main-details"]/h1
+    ${createdLessonName}    get text    MarketplaceCreateALessonCreatedLessonHeadingLocator
     should be equal as strings    ${createdLessonName}      ${updated_title}
-    ${updatedDescription}   get text    //*[@id="description"]
+    ${updatedDescription}   get text    MarketplaceCreateALessonDescriptionFieldLocator
     should be equal as strings    ${updateDescription}      ${updated_description}
-    ${updatedDuration}      get text    //*[@id="stats-row"]/div[10]
+    ${updatedDuration}      get text    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewDurationLocator
     should be equal as strings    ${updatedDuration}    ${updated_duration}
-    ${ageGrade}     get text    //*[@id="stats-row"]/div[2]
+    ${ageGrade}     get text    MarketplaceCreateALessonAgeGradeFieldLocator
     should be equal as strings    ${ageGrade}
-    ${difficulty}   get text    //*[@id="stats-row"]/div[1]
+    ${difficulty}   get text    MarketplaceCreateALessonDifficultyFieldLocator
     should be equal as strings    ${difficulty}     ${difficuly_text}
 
 All assignment types - Edit Lesson - Marketplace
     [documentation]    Verify all assignment types in Edit lesson and their creation flow
 
-    click element    //*[contains(text(),"Edit")]
-    click element    //*[@id="more"]
-    ${assignmentType}   get text    //*[@id="page-1"]/p
+    click element    MarketplaceCreateALessonCreatedLessonViewEditButtonLocator
+    click element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator
+    ${assignmentType}   get text    AddAssignmentPopupHeadingLocator
     should be equal as strings    ${assignmentType}     ${assignment_types_heading}
-    ${grammar_test}     get text    //*[@id="list"]/li[1]/p
+    ${grammar_test}     get text    AddAssignmentPopupGrammarTestLocator
     should be equal as strings    ${grammar_test}   ${grammar_type}
-    ${unseen}   get text    //*[@id="list"]/li[2]/p
+    ${unseen}   get text    AddAssignmentPopupUnseenLocator
     should be equal as strings    ${unseen}     ${unseen_type}
-    ${fill_blanks}      get text    //*[@id="list"]/li[3]/p
+    ${fill_blanks}      get text    AddAssignmentPopupFillBlanksLocator
     should be equal as strings    ${fill_blanks}    ${fill_blanks_type}
-    ${word_pause}   get text    //*[@id="list"]/li[4]/p
+    ${word_pause}   get text    AddAssignmentPopupWordPauseLocator
     should be equal as strings    ${word_pause}     ${word_pause_type}
-    ${vocabulary_quiz}  get text    //*[@id="list"]/li[5]/p
+    ${vocabulary_quiz}  get text    AddAssignmentPopupVocabularyQuizLocator
     should be equal as strings    ${vocabulary_quiz}    ${vocabulary_quiz_type}
-    ${speaking_quiz}    get text    //*[@id="list"]/li[6]/p
+    ${speaking_quiz}    get text    AddAssignmentPopupSpeakingQuizLocator
     should be equal as strings    ${speaking_quiz}  ${speaking_quiz_type}
-    click element    //*[@id="list"]/li[1]/p
-    click element    //*[@id="navigation-row"]/span[2]
-    ${grammarTypeSecondpopup}     get text    //*[@id="page-3"]/p
+    click element    AddAssignmentPopupGrammarTestLocator
+    click element    AddAssignmentPopupSpeakingNextButtonLocator
+    ${grammarTypeSecondpopup}     get text    AddAssignmentPopupGrammarTestFirstPopupHeadingLocator
     should be equal as strings    ${grammarTypeSecondpopup}     ${grammar_type_second_popup}
-    click element    //*[@id="navigation-row"]/span[2]
-    ${grammarTypeThirdPopup}    get text    //*[@id="page-4"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    ${grammarTypeThirdPopup}    get text    AddAssignmentPopupGrammarTestSecondPopupHeadingLocator
     should be equal as strings    ${grammarTypeThirdPopup}  ${grammar_type_third_popup}
-    click element    //*[@id="navigation-row"]/span[2]
-    ${grammarTypeFourthPopup}   get text    //*[@id="page-5"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    ${grammarTypeFourthPopup}   get text    AddAssignmentPopupGrammarTestThirdPopupHeadingLocator
     should be equal as strings  ${grammarTypeFourthPopup}   ${grammar_type_fourth_popup}
-    click element    //*[@id="navigation-row"]/span[2]
-    page should contain element    //*[contains(text(),"Created successfully")]
-    element should be visible    //*[contains(text(),"Created successfully")]
-    click element    //*[@id="more"]
-    click element    //*[@id="list"]/li[2]/p
-    click element    //*[@id="navigation-row"]/span[2]
-    ${unseenTypeSecondpopup}     get text    //*[@id="page-3"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    page should contain element    AddAssignmentPopupSuccessfulCreation
+    element should be visible    AddAssignmentPopupSuccessfulCreation
+    click element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator
+    click element    AddAssignmentPopupUnseenLocator
+    click element    AddAssignmentPopupNextButtonLocator
+    ${unseenTypeSecondpopup}     get text    AddAssignmentPopupUnseenFirstPopupHeadingLocator
     should be equal as strings    ${grammarTypeSecondpopup}     ${unseenTypeSecondpopup}
-    input text      //*[@id="scroll-wrapper"]/form/textarea     ${unseen_type_second_popup_text}
-    click element    //*[@id="navigation-row"]/span[2]
+    input text      AddAssignmentPopupUnseenFirstPopupTextareaLocator     ${unseen_type_second_popup_text}
+    click element    AddAssignmentPopupNextButtonLocator
     sleep    5
-    click element    //*[@id="navigation-row"]/span[2]
-    click element    //*[@id="navigation-row"]/span[2]
-    page should contain element    //*[contains(text(),"Created successfully")]
-    click element    //*[@id="more"]
-    click element    //*[@id="list"]/li[3]/p
-    click element    //*[@id="navigation-row"]/span[2]
-    ${fillBlanksSecondPopup}    get text    //*[@id="page-2"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    click element    AddAssignmentPopupNextButtonLocator
+    page should contain element    AddAssignmentPopupSuccessfulCreation
+    click element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator
+    click element    AddAssignmentPopupFillBlanksLocator
+    click element    AddAssignmentPopupNextButtonLocator
+    ${fillBlanksSecondPopup}    get text    AddAssignmentPopupWordPauseFirstPopupTextareaLocator
     should be equal as strings    ${fillBlanksSecondPopup}      ${word_pause_second_popup}
-    click element    //*[@id="navigation-row"]/span[2]
-    ${fillBlanksThirdPopup}     get text    //*[@id="page-5"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    ${fillBlanksThirdPopup}     get text    AddAssignmentPopupGrammarTestThirdPopupHeadingLocator
     should be equal as strings    ${fillBlanksThirdPopup}   ${grammar_type_fourth_popup}
-    click element    //*[@id="navigation-row"]/span[2]
-    page should contain element    //*[contains(text(),"Created successfully")]
-    click element    //*[@id="more"]
-    click element    //*[@id="list"]/li[4]/p
-    click element    //*[@id="navigation-row"]/span[2]
-    ${wordPauseSecondPopup}     get text    //*[@id="page-2"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    page should contain element    AddAssignmentPopupSuccessfulCreation
+    click element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator
+    click element    AddAssignmentPopupVocabularyQuizLocator
+    click element    AddAssignmentPopupNextButtonLocator
+    ${wordPauseSecondPopup}     get text    AddAssignmentPopupWordPauseFirstPopupTextareaLocator
     should be equal as strings    ${word_pause_second_popup}    ${wordPauseSecondPopup}
-    click element    //*[@id="navigation-row"]/span[2]
-    ${wordPauseThirdPopup}      get text    //*[@id="page-5"]/p
+    click element    AddAssignmentPopupNextButtonLocator
+    ${wordPauseThirdPopup}      get text    AddAssignmentPopupGrammarTestThirdPopupHeadingLocator
     should be equal as strings    ${grammar_type_fourth_popup}      ${wordPauseThirdPopup}
-    click element    //*[@id="navigation-row"]/span[2]
-    page should contain element    //*[contains(text(),"Created successfully")]
-    click element    //*[@id="more"]
-    click element    //*[@id="list"]/li[5]/p
-    click element    //*[@id="navigation-row"]/span[2]
-    ${vocabularyQuizSecondPopup}    get text    //*[@id="page-6"]/p[1]
+    click element    AddAssignmentPopupNextButtonLocator
+    page should contain element    AddAssignmentPopupSuccessfulCreation
+    click element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator
+    click element    AddAssignmentPopupVocabularyQuizLocator
+    click element    AddAssignmentPopupNextButtonLocator
+    ${vocabularyQuizSecondPopup}    get text    AddAssignmentPopupVocabularyQuizFirstPopupLocator
     should be equal as strings    ${vocabulary_quiz_second_popup}   ${vocabularyQuizSecondPopup}
-    click element    //*[@id="navigation-row"]/span[2]
-    page should contain element    //*[contains(text(),"Created successfully")]
-    page should contain element    //*[contains(text(),"Send lesson")]
-    element should be visible    //*[contains(text(),"Send lesson")]
-    page should contain element    //*[contains(text(),"See lesson")]
-    element should be visible    //*[contains(text(),"See lesson")]
+    click element    AddAssignmentPopupNextButtonLocator
+    page should contain element    AddAssignmentPopupSuccessfulCreation
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewSendLessonButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewSendLessonButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewSeeLessonButtonLocator
+    element should be visible    MarketplaceCreateALessonCreatedLessonViewEditedLessonViewSeeLessonButtonLocator
 
 Verify marketplace main page fields
     [documentation]    Verify marketplace main page fields
 
     Marketplace
-    page should contain element    //*[contains(text(),"lessons found")]
-    element should be visible    //*[contains(text(),"lessons found")]
-    click element    //*[@id="gallery"]/app-lesson-card[1]/div/div[1]
-    page should contain element    //*[contains(text(),"Use lesson")]
-    page should contain element    //*[@id="main-details"]/div[1]/button[2]
-    page should contain element    //*[@id="main-details"]/div[1]/button[3]
-    page should contain element    //*[contains(text(),"Difficulty")]
-    page should contain element    //*[contains(text(),"Age grade")]
-    page should contain element    //*[contains(text(),"Words")]
-    page should contain element    //*[contains(text(),"Duration")]
-    page should contain element    //*[contains(text(),"More from the same teacher")]
-    page should contain element    //*[contains(text(),"Comments")]
+    page should contain element    MarketplacePageViewLessonsNumberLocator
+    element should be visible    MarketplacePageViewLessonsNumberLocator
+    click element    MarketplacePageViewLessonCardLocator
+    page should contain element    MarketplacePageViewLessonCardViewUseLessonButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator
+    page should contain element    MarketplaceCreateALessonCreatedLessonViewDislikeButtonLocator
+    page should contain element    MarketplaceCreateALessonDifficultyFieldLocator
+    page should contain element    MarketplaceCreateALessonAgeGradeFieldLocator
+    page should contain element    MarketplacePageViewLessonCardWordsLocator
+    page should contain element    MarketplaceCreateALessonDurationFieldLocator
+    page should contain element    MarketplacePageViewLessonCardMoreFromSameTeacherElementLocator
+    page should contain element    MarketplacePageViewLessonCardWordsLocator
 
 *** Variables ***
 ${title}    Testing Lesson

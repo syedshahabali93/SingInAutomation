@@ -2,6 +2,7 @@
 Library    SeleniumLibrary
 Resource    ./SideNavBar.robot
 Documentation    This section contains all the test cases related to Classes page/functionality.
+Variables    ../../Locators/Classes.py
 
 *** Keywords ***
 
@@ -10,282 +11,282 @@ Classes View Section
 
     press keys    None      ESC
     Classes
-    click button    //*[contains(text(), 'Close')]
-    ${classes}  get text    //*[@id="wrapper"]/div[1]/h1
+    click button    ClassesCloseButtonLocator
+    ${classes}  get text    ClassesHeadingTextLocator
     should be equal as strings    ${classes}    ${classes_heading_text}
-    page should contain element    //*[@id="menu-col"]/li[1]/p
-    element should be visible    //*[@id="menu-col"]/li[1]/p
-    page should contain element    //*[@id="content"]/div/div[1]/h2
-    element should be visible    //*[@id="content"]/div/div[1]/h2
-    page should contain element    //*[@id="actions"]/i[1]
-    element should be visible    //*[@id="actions"]/i[1]
-    page should contain element    //*[@id="actions"]/i[2]
-    element should be visible    //*[@id="actions"]/i[2]
+    page should contain element    ClassesSideMenuAllButtonLocator
+    element should be visible    ClassesSideMenuAllButtonLocator
+    page should contain element    ClassesAllClassesTableHeadingLocator
+    element should be visible    ClassesAllClassesTableHeadingLocator
+    page should contain element    ClassesPlusButtonLocator
+    element should be visible    ClassesPlusButtonLocator
+    page should contain element    ClassesEyeButtonLocator
+    element should be visible    ClassesEyeButtonLocator
 
 Show me how button
     [documentation]    Verify that the Admin can open the "Show me how pop up"
 
-    page should contain element    //*[@id="info"]
-    element should be visible    //*[@id="info"]
-    click element    //*[@id="info"]
-    ${manage_groups}    get text    //*[@id="wrapper"]/h2
+    page should contain element    ClassesShowMeHowLocator
+    element should be visible    ClassesShowMeHowLocator
+    click element    ClassesShowMeHowLocator
+    ${manage_groups}    get text    ClassesShowMeHowPopupHeadingLocator
     should be equal as strings    ${manage_groups}  ${show_me_how_popup_heading}
-    ${classes_schools}    get text    //*[@id="wrapper"]/h3[1]
+    ${classes_schools}    get text    ClassesShowMeHowPopupSubHeadingFirstLocator
     should be equal as strings    ${classes_schools}  ${show_me_how_popup_heading_second}
-    ${managing_students}    get text    //*[@id="wrapper"]/h3[2]
+    ${managing_students}    get text    ClassesShowMeHowPopupSubHeadingSecondLocator
     should be equal as strings    ${managing_students}  ${show_me_how_popup_heading_third}
-    page should contain element    //*[@id="wrapper"]/button
-    element should be visible    //*[@id="wrapper"]/button
-    click element    //*[@id="wrapper"]/button
+    page should contain element    ClassesShowMeHowPopupCloseButtonLocator
+    element should be visible    ClassesShowMeHowPopupCloseButtonLocator
+    click element    ClassesShowMeHowPopupCloseButtonLocator
 
 All classes section
     [documentation]    Verify that the Admin can see the all classes
 
-    page should contain element    //*[@id="content"]/table/tr[1]/th[1]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[1]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[1]
+    page should contain element    ClassesAllClassesTableHashColumnLocator
+    element should be visible    ClassesAllClassesTableHashColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableHashColumnLocator
 #    should be equal as strings    ${hash_text}      ${classes_table_first_column}
-    page should contain element    //*[@id="content"]/table/tr[1]/th[2]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[2]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[2]
+    page should contain element    ClassesAllClassesTableNameColumnLocator
+    element should be visible    ClassesAllClassesTableNameColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableNameColumnLocator
     should be equal as strings    ${hash_text}  ${classes_table_second_column}
-    page should contain element    //*[@id="content"]/table/tr[1]/th[3]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[3]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[3]
+    page should contain element    ClassesAllClassesTableStudentsColumnLocator
+    element should be visible    ClassesAllClassesTableStudentsColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableStudentsColumnLocator
     should be equal as strings    ${hash_text}  ${classes_table_third_column}
-    page should contain element    //*[@id="content"]/table/tr[1]/th[4]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[4]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[4]
+    page should contain element    ClassesAllClassesTableWordsSentColumnLocator
+    element should be visible    ClassesAllClassesTableWordsSentColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableWordsSentColumnLocator
     should be equal as strings    ${hash_text}  ${classes_table_fourth_column}
-    page should contain element    //*[@id="content"]/table/tr[1]/th[5]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[5]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[5]
+    page should contain element    ClassesAllClassesTableSongHearedColumnLocator
+    element should be visible    ClassesAllClassesTableSongHearedColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableSongHearedColumnLocator
     should be equal as strings    ${hash_text}  ${classes_table_fifth_column}
-    page should contain element    //*[@id="content"]/table/tr[1]/th[6]
-    element should be visible    //*[@id="content"]/table/tr[1]/th[6]
-    ${hash_text}    get text    //*[@id="content"]/table/tr[1]/th[6]
+    page should contain element    ClassesAllClassesTableQuizzesAnsweredColumnLocator
+    element should be visible    ClassesAllClassesTableQuizzesAnsweredColumnLocator
+    ${hash_text}    get text    ClassesAllClassesTableQuizzesAnsweredColumnLocator
     should be equal as strings    ${hash_text}  ${classes_table_sixth_column}
-    page should contain element    //*[@id="content"]/table/tr[2]/td[7]/i
-    element should be visible    //*[@id="content"]/table/tr[2]/td[7]/i
+    page should contain element    ClassesAllClassesTableThreeDotsColumnLocator
+    element should be visible    ClassesAllClassesTableThreeDotsColumnLocator
 
 + button
     [documentation]    Verify that the "+" sign can open "Create a new group" pop-up
 
-    click element    //*[@id="actions"]/i[1]
-    ${create_group}    get text    //*[@id="wrapper"]/h3
-    should be equal as strings    ${create_group}  Create a new group
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[1]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[1]/div/div[1]/div[3]
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[2]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[2]/div/div[1]/div[3]
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[3]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[3]/div/div[1]/div[3]
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[4]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[4]/div/div[1]/div[3]
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[5]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[5]/div/div[1]/div[3]
-    page should contain element    //*[@id="mat-input-1"]
-    element should be visible    //*[@id="mat-input-1"]
-    page should contain element    //*[@id="wrapper"]/form/mat-form-field[7]/div/div[1]/div[3]
-    element should be visible    //*[@id="wrapper"]/form/mat-form-field[7]/div/div[1]/div[3]
-    page should contain element    //*[@id="mat-input-3"]
-    element should be visible    //*[@id="mat-input-3"]
-    click button    //*[@id="wrapper"]/form/button
-    ${fill_required_fields}     get text    //*[@id="wrapper"]/form/p
-    should be equal as strings    ${fill_required_fields}   Please fill all required fields
+    click element    ClassesPlusButtonLocator
+    ${create_group}    get text    ClassPlusButtonCreateNewGroupHeadingLocator
+    should be equal as strings    ${create_group}   ${create_new_group_popup_heading_text}
+    page should contain element    ClassPlusButtonCreateNewGroupFieldLocator
+    element should be visible    ClassPlusButtonCreateNewGroupFieldLocator
+    page should contain element    ClassPlusButtonCreateNewClassFieldLocator
+    element should be visible    ClassPlusButtonCreateNewClassFieldLocator
+    page should contain element    ClassPlusButtonCreateNewGrammarLevelFieldLocator
+    element should be visible    ClassPlusButtonCreateNewGrammarLevelFieldLocator
+    page should contain element    ClassPlusButtonCreateNewDefaultLanguageFieldLocator
+    element should be visible    ClassPlusButtonCreateNewDefaultLanguageFieldLocator
+    page should contain element    ClassPlusButtonCreateNewParentContainerFieldLocator
+    element should be visible    ClassPlusButtonCreateNewParentContainerFieldLocator
+    page should contain element    ClassPlusButtonCreateNewIDMOrganizationIDFieldLocator
+    element should be visible    ClassPlusButtonCreateNewIDMOrganizationIDFieldLocator
+    page should contain element    ClassPlusButtonCreateNewAllowedUsersCountFieldLocator
+    element should be visible    ClassPlusButtonCreateNewAllowedUsersCountFieldLocator
+    page should contain element    ClassPlusButtonCreateNewExpirationFieldLocator
+    element should be visible    ClassPlusButtonCreateNewExpirationFieldLocator
+    click button    ClassPlusButtonCreateNewSaveButtonLocator
+    ${fillRequiredFields}     get text    ClassPlusButtonCreateNewErrorMessageLocator
+    should be equal as strings    ${fill_required_fields}   ${fill_required_fields}
     press keys    None      ESC
 
 Eye button
     [documentation]    Verify that the "Eye" icon can open "Select classes" pop-up
 
-    click element    //*[@id="actions"]/i[2]
-    ${select_classes}   get text    //*[text()="Select classes"]
+    click element    ClassesEyeButtonLocator
+    ${select_classes}   get text    ClassEyeButtonPopupHeadingLocator
     should be equal as strings    ${select_classes}     Select classes
-    page should contain element    //*[@id="table-wrapper"]/table/tr[1]/th[1]
-    element should be visible    //*[@id="table-wrapper"]/table/tr[1]/th[1]
-    page should contain element    //*[@id="table-wrapper"]/table/tr[1]/th[2]
-    element should be visible    //*[@id="table-wrapper"]/table/tr[1]/th[2]
-    page should contain element    //*[@id="table-wrapper"]/table/tr[1]/th[3]
-    element should be visible    //*[@id="table-wrapper"]/table/tr[1]/th[3]
-    page should contain element    //*[text()="Save"]
-    element should be visible    //*[text()="Save"]
+    page should contain element    ClassEyeButtonPopupTableFirstColumnLocator
+    element should be visible    ClassEyeButtonPopupTableFirstColumnLocator
+    page should contain element    ClassEyeButtonPopupTableSecondColumnLocator
+    element should be visible    ClassEyeButtonPopupTableSecondColumnLocator
+    page should contain element    ClassEyeButtonPopupTableThirdColumnLocator
+    element should be visible    ClassEyeButtonPopupTableThirdColumnLocator
+    page should contain element    ClassEyeButtonPopupSaveButtonLocator
+    element should be visible    ClassEyeButtonPopupSaveButtonLocator
     set selenium speed    0.1
-    click button    //*[text()="Save"]
-    page should contain element    //*[text()="Changes saved successfully"]
-    element should be visible    //*[text()="Changes saved successfully"]
-    ${classes_saved}    get text    //*[text()="Changes saved successfully"]
+    click button    ClassEyeButtonPopupSaveButtonLocator
+    page should contain element    ClassEyeButtonPopupSuccessMessageLocator
+    element should be visible    ClassEyeButtonPopupSuccessMessageLocator
+    ${classes_saved}    get text    ClassEyeButtonPopupSuccessMessageLocator
     should be equal as strings    ${classes_saved}  ${changes_saved_success_message}
     set selenium speed    1
 
 Three vertical dots
     [documentation]    Verify that by clicking on "Three dots" More options can open
 
-    page should contain element    //*[@id="content"]/table/tr[2]/td[7]
-    element should be visible    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    page should contain element    //*[text()="watch class progress"]
-    element should be visible    //*[text()="watch class progress"]
-    page should contain element    //*[text()="Content policy"]
-    element should be visible    //*[text()="Content policy"]
-    page should contain element    //*[text()="Remove group"]
-    element should be visible    //*[text()="Remove group"]
+    page should contain element    ClassesAllClassesTableThreeDotsColumnLocator
+    element should be visible    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    page should contain element    ClassThreeDotsPopupWatchClassProgressLocator
+    element should be visible    ClassThreeDotsPopupWatchClassProgressLocator
+    page should contain element    ClassThreeDotsPopupContentPolicyLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyLocator
+    page should contain element    ClassThreeDotsPopupRemoveGroupLocator
+    element should be visible    ClassThreeDotsPopupRemoveGroupLocator
 
 In three vertical dots - Edit class
     [documentation]    Verify that the Admin can open the pop-up by clicking on "Edit class"
 
     click element    //*[text()="Edit class"]
-    ${edit_class}   get text    //*[@id="wrapper"]/h3
+    ${edit_class}   get text    ClassThreeDotsEditClassPopupHeadingLocator
     should be equal as strings    ${edit_class}     Update shahid
-    page should contain element    //*[text()="Group name"]
-    element should be visible    //*[text()="Group name"]
-    page should contain element    //*[text()="Group type"]
-    element should be visible    //*[text()="Group type"]
-    page should contain element    //*[text()="Default grammar level"]
-    element should be visible    //*[text()="Default grammar level"]
-    page should contain element    //*[text()="Default language"]
-    element should be visible    //*[text()="Default language"]
-    page should contain element    //*[text()="Parent container"]
-    element should be visible    //*[text()="Parent container"]
-    page should contain element    //*[text()="IDM organization id"]
-    element should be visible    //*[text()="IDM organization id"]
-    page should contain element    //*[text()="Allowed users count"]
-    element should be visible    //*[text()="Allowed users count"]
-    page should contain element    //*[text()="Expiration date"]
-    element should be visible    //*[text()="Expiration date"]
-    page should contain element    //*[@id="wrapper"]/form/button
-    element should be visible    //*[@id="wrapper"]/form/button
+    page should contain element    ClassThreeDotsEditClassPopupGroupNameFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupGroupNameFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupGroupTypeFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupGroupTypeFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupDefaultGrammarLevelFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupDefaultGrammarLevelFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupDefaultLanguageFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupDefaultLanguageFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupParentContainerFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupParentContainerFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupIDMOrganizationIDFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupIDMOrganizationIDFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupAllowedUsersCountFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupAllowedUsersCountFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupExpirationDateFieldLocator
+    element should be visible    ClassThreeDotsEditClassPopupExpirationDateFieldLocator
+    page should contain element    ClassThreeDotsEditClassPopupUpdateButtonLocator
+    element should be visible    ClassThreeDotsEditClassPopupUpdateButtonLocator
     set selenium speed    0.1
-    click button    //*[@id="wrapper"]/form/button
-    page should contain element    //*[text()="Group updated successfully."]
-    element should be visible    //*[text()="Group updated successfully."]
-    ${success_text}     get text    //*[text()="Group updated successfully."]
+    click button    ClassThreeDotsEditClassPopupUpdateButtonLocator
+    page should contain element    ClassThreeDotsEditClassPopupUpdatedSuccessMessageLocator
+    element should be visible    ClassThreeDotsEditClassPopupUpdatedSuccessMessageLocator
+    ${success_text}     get text    ClassThreeDotsEditClassPopupUpdatedSuccessMessageLocator
     should be equal as strings    ${success_text}   ${group_updated_success_message}
     set selenium speed    1
 
 In three vertical dots - Watch class progress
     [documentation]    Verify that the Admin can open the pop-up by clicking on "watch class progress"
 
-    page should contain element    //*[@id="content"]/table/tr[2]/td[7]
-    element should be visible    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[text()="watch class progress"]
-    page should contain element    //*[@id="header"]/div/h1
-    element should be visible    //*[@id="header"]/div/h1
-    ${watch_class_progress}     get text    //*[@id="header"]/div/h1
+    page should contain element    ClassesAllClassesTableThreeDotsColumnLocator
+    element should be visible    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassThreeDotsPopupWatchClassProgressLocator
+    page should contain element    ClassThreeDotsWatchClassProgressHeadingLocator
+    element should be visible    ClassThreeDotsWatchClassProgressHeadingLocator
+    ${watch_class_progress}     get text    ClassThreeDotsWatchClassProgressHeadingLocator
     should be equal as strings    ${watch_class_progress}   ${student_name}
-    page should contain element    //*[@id="leftContent"]/h4[1]
-    element should be visible    //*[@id="leftContent"]/h4[1]
-    ${timeline}     get text    //*[@id="leftContent"]/h4[1]
+    page should contain element    ClassThreeDotsWatchClassProgressTimelineTextLocator
+    element should be visible    ClassThreeDotsWatchClassProgressTimelineTextLocator
+    ${timeline}     get text    ClassThreeDotsWatchClassProgressTimelineTextLocator
     should be equal as strings    ${timeline}   ${class_progress_timeline_text}
-    page should contain element    //*[@id="grades-distribution-header"]
-    element should be visible    //*[@id="grades-distribution-header"]
-    ${grades_distribution}  get text    //*[@id="grades-distribution-header"]
+    page should contain element    ClassThreeDotsWatchClassProgressGradesDistributionTextLocator
+    element should be visible    ClassThreeDotsWatchClassProgressGradesDistributionTextLocator
+    ${grades_distribution}  get text    ClassThreeDotsWatchClassProgressGradesDistributionTextLocator
     should be equal as strings    ${grades_distribution}    ${class_progress_grades_distribution_text}}
-    page should contain element    //*[@id="leftContent"]/h4[2]
-    element should be visible    //*[@id="leftContent"]/h4[2]
-    ${all_lessons}  get text    //*[@id="leftContent"]/h4[2]
+    page should contain element    ClassThreeDotsWatchClassProgressAllLessonsTextLocator
+    element should be visible    ClassThreeDotsWatchClassProgressAllLessonsTextLocator
+    ${all_lessons}  get text    ClassThreeDotsWatchClassProgressAllLessonsTextLocator
     should be equal as strings    ${all_lessons}    ${class_progress_all_lessons_text}
-    page should contain element    //*[@id="inner"]/h4[2]
-    element should be visible    //*[@id="inner"]/h4[2]
-    ${assignments_completed}    get text    //*[@id="inner"]/h4[2]
+    page should contain element    ClassThreeDotsWatchClassProgressAssignmentsCompletedTextLocator
+    element should be visible    ClassThreeDotsWatchClassProgressAssignmentsCompletedTextLocator
+    ${assignments_completed}    get text    ClassThreeDotsWatchClassProgressAssignmentsCompletedTextLocator
     should contain    ${assignments_completed}      ${class_progress_assignments_completed_text}
-    page should contain element    //*[@id="inner"]/h4[3]
-    element should be visible    //*[@id="inner"]/h4[3]
-    ${most_selected_words}  get text    //*[@id="inner"]/h4[3]
+    page should contain element    ClassThreeDotsWatchClassProgressMostSelectedWordsTextLocator
+    element should be visible    ClassThreeDotsWatchClassProgressMostSelectedWordsTextLocator
+    ${most_selected_words}  get text    ClassThreeDotsWatchClassProgressMostSelectedWordsTextLocator
     should be equal as strings    ${most_selected_words}    ${class_progress_most_selected_words_text}
-    page should contain element    //*[@id="wrapper"]/button
-    element should be visible    //*[@id="wrapper"]/button
-    click button    //*[@id="wrapper"]/button
-    page should not contain    //*[@id="header"]/div/h1
+    page should contain element    ClassThreeDotsWatchClassProgressCloseButtonLocator
+    element should be visible    ClassThreeDotsWatchClassProgressCloseButtonLocator
+    click button    ClassThreeDotsWatchClassProgressCloseButtonLocator
+    page should not contain    ClassThreeDotsWatchClassProgressHeadingLocator
 
 In three vertical dots - Content policy
     [documentation]    Verify that the Admin can open the pop-up by clicking on "content policy"
 
-    page should contain element    //*[@id="content"]/table/tr[2]/td[7]
-    element should be visible    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    page should contain element    //*[text()="Content policy"]
-    element should be visible    //*[text()="Content policy"]
-    click element    //*[text()="Content policy"]
-    ${content_policy}   get text    //*[@id="wrapper"]/h3
+    page should contain element    ClassesAllClassesTableThreeDotsColumnLocator
+    element should be visible    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    page should contain element    ClassThreeDotsPopupContentPolicyLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyLocator
+    click element    ClassThreeDotsPopupContentPolicyLocator
+    ${content_policy}   get text    ClassThreeDotsPopupContentPolicyPopupHeadingLocator
     should be equal as strings    ${content_policy}     ${content_policy_heading}
-    page should contain element    //*[text()="Abuse and Violence"]
-    element should be visible    //*[text()="Abuse and Violence"]
-    ${abuse_violence}   get text    //*[text()="Abuse and Violence"]
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupAbuseAndViolenceBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupAbuseAndViolenceBarHeadingTextLocator
+    ${abuse_violence}   get text    ClassThreeDotsPopupContentPolicyPopupAbuseAndViolenceBarHeadingTextLocator
     should be equal as strings    ${abuse_violence}     ${row_one_text}
-    page should contain element    //*[@id="wrapper"]/div[2]/p
-    element should be visible    //*[@id="wrapper"]/div[2]/p
-    ${coarse_language}  get text    //*[@id="wrapper"]/div[2]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupCoarseLanguageBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupCoarseLanguageBarHeadingTextLocator
+    ${coarse_language}  get text    ClassThreeDotsPopupContentPolicyPopupCoarseLanguageBarHeadingTextLocator
     should be equal as strings    ${coarse_language}    ${row_two_text}
-    page should contain element    //*[@id="wrapper"]/div[3]/p
-    element should be visible    //*[@id="wrapper"]/div[3]/p
-    ${gambling}     get text    //*[@id="wrapper"]/div[3]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupGamblingBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupGamblingBarHeadingTextLocator
+    ${gambling}     get text    ClassThreeDotsPopupContentPolicyPopupGamblingBarHeadingTextLocator
     should be equal as strings    ${gambling}   ${row_three_text}
-    page should contain element    //*[@id="wrapper"]/div[4]/p
-    element should be visible    //*[@id="wrapper"]/div[4]/p
-    ${gender_identity}  get text    //*[@id="wrapper"]/div[4]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupGenderIdentityAndSexualBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupGenderIdentityAndSexualBarHeadingTextLocator
+    ${gender_identity}  get text    ClassThreeDotsPopupContentPolicyPopupGenderIdentityAndSexualBarHeadingTextLocator
     should be equal as strings    ${gender_identity}    ${row_four_text}
-    page should contain element    //*[@id="wrapper"]/div[5]/p
-    element should be visible    //*[@id="wrapper"]/div[5]/p
-    ${political}    get text    //*[@id="wrapper"]/div[5]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupPoliticalBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupPoliticalBarHeadingTextLocator
+    ${political}    get text    ClassThreeDotsPopupContentPolicyPopupPoliticalBarHeadingTextLocator
     should be equal as strings    ${political}  ${row_five_text}
-    page should contain element    //*[@id="wrapper"]/div[6]/p
-    element should be visible    //*[@id="wrapper"]/div[6]/p
-    ${race_ethnicity}   get text    //*[@id="wrapper"]/div[6]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupRaceAndEthnicityBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupRaceAndEthnicityBarHeadingTextLocator
+    ${race_ethnicity}   get text    ClassThreeDotsPopupContentPolicyPopupRaceAndEthnicityBarHeadingTextLocator
     should be equal as strings    ${race_ethnicity}     ${row_six_text}
-    page should contain element    //*[@id="wrapper"]/div[7]/p
-    element should be visible    //*[@id="wrapper"]/div[7]/p
-    ${religion}     get text    //*[@id="wrapper"]/div[7]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupReligionBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupReligionBarHeadingTextLocator
+    ${religion}     get text    ClassThreeDotsPopupContentPolicyPopupReligionBarHeadingTextLocator
     should be equal as strings    ${religion}   ${row_seven_text}
-    page should contain element    //*[@id="wrapper"]/div[8]/p
-    element should be visible    //*[@id="wrapper"]/div[8]/p
-    ${sexual}   get text    //*[@id="wrapper"]/div[8]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupSexualBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupSexualBarHeadingTextLocator
+    ${sexual}   get text    ClassThreeDotsPopupContentPolicyPopupSexualBarHeadingTextLocator
     should be equal as strings    ${sexual}     ${row_eight_text}
-    page should contain element    //*[@id="wrapper"]/div[9]/p
-    element should be visible    //*[@id="wrapper"]/div[9]/p
-    ${substance_use}    get text    //*[@id="wrapper"]/div[9]/p
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupSubstanceUseBarHeadingTextLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupSubstanceUseBarHeadingTextLocator
+    ${substance_use}    get text    ClassThreeDotsPopupContentPolicyPopupSubstanceUseBarHeadingTextLocator
     should be equal as strings    ${substance_use}  ${row_nine_text}
-    page should contain element    //*[@id="wrapper"]/div[10]/span
-    element should be visible    //*[@id="wrapper"]/div[10]/span
-    page should contain element    //*[@id="wrapper"]/div[10]/button
-    element should be visible    //*[@id="wrapper"]/div[10]/button
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupCancelButtonLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupCancelButtonLocator
+    page should contain element    ClassThreeDotsPopupContentPolicyPopupSaveButtonLocator
+    element should be visible    ClassThreeDotsPopupContentPolicyPopupSaveButtonLocator
     press keys    None      ESC
 
 In three vertical dots - Remove Group
     [documentation]    Verify that the Admin can open the pop-up by clicking on "Remove Group"
 
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[text()="Remove group"]
-    page should contain element    //*[text()="Are you sure you want to delete the group"]
-    element should be visible    //*[text()="Are you sure you want to delete the group"]
-    ${removeGroupConfirmationMessage}    get text    //*[text()="Are you sure you want to delete the group"]
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassThreeDotsPopupRemoveGroupLocator
+    page should contain element    ClassThreeDotsPopupRemoveGroupHeadingLocator
+    element should be visible    ClassThreeDotsPopupRemoveGroupHeadingLocator
+    ${removeGroupConfirmationMessage}    get text    ClassThreeDotsPopupRemoveGroupHeadingLocator
     should be equal as strings    ${removeGroupConfirmationMessage}     ${remove_group_confirmation_message}
-    page should contain element    //*[text()="Remove"]
-    element should be visible    //*[text()="Remove"]
-    page should contain element    //*[text()="Cancel"]
-    element should be visible    //*[text()="Cancel"]
+    page should contain element    ClassThreeDotsPopupRemoveGroupRemoveButtonLocator
+    element should be visible    ClassThreeDotsPopupRemoveGroupRemoveButtonLocator
+    page should contain element    ClassThreeDotsPopupRemoveGroupCancelButtonLocator
+    element should be visible    ClassThreeDotsPopupRemoveGroupCancelButtonLocator
     press keys    None      ESC
 
 In three vertical dots - Remove Group - Test Cancel button
     [documentation]    Verify that Remove Group pop-up closes on clicking "Cancel"
 
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[text()="Remove group"]
-    page should contain element    //*[text()="Cancel"]
-    click element    //*[text()="Cancel"]
-    page should not contain element    //*[text()="Are you sure you want to delete the group"]
-    element should not be visible    //*[text()="Are you sure you want to delete the group"]
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassThreeDotsPopupRemoveGroupLocator
+    page should contain element    ClassThreeDotsPopupRemoveGroupCancelButtonLocator
+    click element    ClassThreeDotsPopupRemoveGroupCancelButtonLocator
+    page should not contain element    ClassThreeDotsPopupRemoveGroupHeadingLocator
+    element should not be visible    ClassThreeDotsPopupRemoveGroupHeadingLocator
 
 In three vertical dots - Remove Group - Test Remove button
     [documentation]    Verify that Remove Group pop-up closes on clicking "Remove"
 
-    click element    //*[@id="content"]/table/tr[2]/td[7]
-    click element    //*[text()="Remove group"]
+    click element    ClassesAllClassesTableThreeDotsColumnLocator
+    click element    ClassThreeDotsPopupRemoveGroupLocator
     set selenium speed    0.1
-    page should contain element    //*[text()="Remove"]
-    click button    //*[text()="Remove"]
-    page should contain element    //*[text()="Group removed successfully"]
-    element should be visible    //*[text()="Group removed successfully"]
+    page should contain element    ClassThreeDotsPopupRemoveGroupRemoveButtonLocator
+    click button    ClassThreeDotsPopupRemoveGroupRemoveButtonLocator
+    page should contain element    ClassThreeDotsPopupRemoveGroupRemovedSuccessMessageLocator
+    element should be visible    ClassThreeDotsPopupRemoveGroupRemovedSuccessMessageLocator
     set selenium speed    1
 
 *** Variables ***
@@ -318,3 +319,6 @@ ${row_seven_text}   Religion
 ${row_eight_text}   Sexual
 ${row_nine_text}    Substance Use
 ${remove_group_confirmation_message}    Are you sure you want to delete the group
+${create_new_group_popup_heading_text}      Create a new group
+${fill_required_fields}    Please fill all required fields
+
