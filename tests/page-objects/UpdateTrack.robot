@@ -1,36 +1,38 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ./SideNavBar.robot
+Documentation    This section contains all the test cases related to Updates Track page/functionality.
 Variables    ../../Locators/UpdateTrack.py
 
 *** Keywords ***
+Update Track View Page
     [documentation]    Verify Update Track page exists and user is able to view assignments and perform actions
 
     UpdateTrack
-    ${trackUpdate}  get text    UpdateTrackHeadingTextLocator
+    ${trackUpdate}  get text    ${UpdateTrackHeadingTextLocator}
     should be equal as strings    ${trackUpdate}    ${update_track}
-    page should contain element    UpdateTrackSearchSongFieldLocator
-    element should be visible    UpdateTrackSearchSongFieldLocator
-    page should contain element    UpdateTrackTitleFieldLocator
-    element should be visible    UpdateTrackTitleFieldLocator
-    page should contain element    UpdateTrackYoutubeIDFieldLocator
-    element should be visible    UpdateTrackYoutubeIDFieldLocator
-    page should contain element    UpdateTrackLyricsFieldLocator
-    element should be visible    UpdateTrackLyricsFieldLocator
-    page should contain element    UpdateTrackTagsFieldLocator
-    element should be visible    UpdateTrackTagsFieldLocator
-    page should contain element    UpdateTrackExplicitCoverFieldLocator
-    element should be visible    UpdateTrackExplicitCoverFieldLocator
-    page should contain element    UpdateTrackSaveButtonLocator
-    element should be visible    UpdateTrackSaveButtonLocator
-    input text    UpdateTrackSearchSongFieldLocator   %{track_name}
-    click element    //*[contains(text(),"%{track_name} -")]
-    input text    UpdateTrackTitleFieldLocator     ${title}
-    input text    UpdateTrackYoutubeIDFieldLocator    ${youtubeid}
-    input text    UpdateTrackLyricsFieldLocator    ${lyrics}
-    input text    UpdateTrackTagsFieldLocator      ${tag}
-    click element    UpdateTrackSaveButtonLocator
-    click element    UpdateTrackExplicitCoverFieldLocator
+    page should contain element    ${UpdateTrackSearchSongFieldLocator}
+    element should be visible    ${UpdateTrackSearchSongFieldLocator}
+    page should contain element    ${UpdateTrackTitleFieldLocator}
+    element should be visible    ${UpdateTrackTitleFieldLocator}
+    page should contain element    ${UpdateTrackYoutubeIDFieldLocator}
+    element should be visible    ${UpdateTrackYoutubeIDFieldLocator}
+    page should contain element    ${UpdateTrackLyricsFieldLocator}
+    element should be visible    ${UpdateTrackLyricsFieldLocator}
+    page should contain element    ${UpdateTrackTagsFieldLocator}
+    element should be visible    ${UpdateTrackTagsFieldLocator}
+    page should contain element    ${UpdateTrackExplicitCoverFieldLocator}
+    element should be visible    ${UpdateTrackExplicitCoverFieldLocator}
+    page should contain element    ${UpdateTrackSaveButtonLocator}
+    element should be visible    ${UpdateTrackSaveButtonLocator}
+    input text    ${UpdateTrackSearchSongFieldLocator}   ${track_name}
+    click element    //*[contains(text(),"${track_name} -")]
+    input text    ${UpdateTrackTitleFieldLocator}     ${title}
+    input text    ${UpdateTrackYoutubeIDFieldLocator}    ${youtubeid}
+    input text    ${UpdateTrackLyricsFieldLocator}    ${lyrics}
+    input text    ${UpdateTrackTagsFieldLocator}      ${tag}
+    click element    ${UpdateTrackSaveButtonLocator}
+    click element    ${UpdateTrackExplicitCoverFieldLocator}
 
 *** Variables ***
 ${update_track}     Track Update

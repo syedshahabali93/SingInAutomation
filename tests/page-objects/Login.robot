@@ -10,33 +10,34 @@ Login Test
 
     ${dashboardLogin}      get text    ${LoginScreenHeadingLocator}
     should be equal as strings    ${dashboardLogin}    ${dashboard_login}
-    page should contain image    LoginScreenLogoLocator
-    page should contain element     LoginScreenEmailLocator
-    page should contain element    LoginScreenPasswordLocator
-    page should contain button    LoginButtonLocator
+
+    page should contain image    ${LoginScreenLogoLocator}
+    page should contain element     ${LoginScreenEmailLocator}
+    page should contain element    ${LoginScreenPasswordLocator}
+    page should contain button    ${LoginButtonLocator}
 
 Forgot password
     [documentation]    Verify enter email pop-up is opened on clicking Forgot Password? button
 
-    click element   ForgotPasswordLocator
-    ${resetPassword}   get text    ResetPasswordHeadingLocator
+    click element   ${ForgotPasswordLocator}
+    ${resetPassword}   get text    ${ResetPasswordHeadingLocator}
     should be equal as strings    ${resetPassword}     ${reset_password}
-    page should contain element    ResetPasswordEmailFieldLocator
-    page should contain button    ResetPasswordSubmitLocator
-    input text    ResetPasswordEmailFieldLocator   %{username_email}
-    click button    ResetPasswordSubmitLocator
-    ${email_sent}   get text    ResetEmailSuccessMessageLocator
+    page should contain element    ${ResetPasswordEmailFieldLocator}
+    page should contain button    ${ResetPasswordSubmitLocator}
+    input text    ${ResetPasswordEmailFieldLocator}   ${username_email}
+    click button    ${ResetPasswordSubmitLocator}
+    ${email_sent}   get text    ${ResetEmailSuccessMessageLocator}
     should be equal as strings    ${email_sent}     ${reset_email_confirmation_message}
     press keys    None      ESC
 
 Login to webpage
     [documentation]    Verify user is able to login with the provided credentials
 
-    click element    LoginScreenEmailLocator
-    input text    LoginScreenEmailLocator   %{username_email}
-    click element    LoginScreenPasswordLocator
-    input password    LoginScreenPasswordLocator   %{password}
-    click button    LoginButtonLocator
+    click element    ${LoginScreenEmailLocator}
+    input text    ${LoginScreenEmailLocator}   ${username_email}
+    click element    ${LoginScreenPasswordLocator}
+    input password    ${LoginScreenPasswordLocator}   ${user_password}
+    click button    ${LoginButtonLocator}
     sleep    2
 
 *** Variables ***
