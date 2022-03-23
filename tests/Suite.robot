@@ -73,5 +73,5 @@ UserMessages
 UpdateTrack
     Update Track View Page
 
-#Exit
-#    End Test
+Exit
+    End Test
