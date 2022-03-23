@@ -148,6 +148,7 @@ Edit lesson - Marketplace
 Verify edited lesson details - Marketplace
     [documentation]    Verify updated details are saved and showing after lesson has been edited
 
+    sleep    2
     ${createdLessonName}    get text    ${MarketplaceCreateALessonCreatedLessonHeadingLocator}
     should be equal as strings    ${createdLessonName}      ${updated_title}
     ${updatedDescription}   get text    ${MarketplacePageViewEditedLessonDescriptionFieldLocator}
@@ -261,6 +262,7 @@ Verify marketplace main page fields
     page should contain element    ${MarketplacePageViewLessonsNumberLocator}
     element should be visible    ${MarketplacePageViewLessonsNumberLocator}
     click element    ${MarketplacePageViewLessonCardLocator}
+    ${WindowHandles} =      get window handles    CURRENT
     switch window    NEW
     page should contain element    ${MarketplacePageViewLessonCardViewUseLessonButtonLocator}
     page should contain element    ${MarketplaceCreateALessonCreatedLessonViewLikeButtonLocator}
@@ -271,6 +273,7 @@ Verify marketplace main page fields
     page should contain element    ${MarketplacePageViewEditedLessonDurationFieldLocator}
     page should contain element    ${MarketplacePageViewLessonCardMoreFromSameTeacherElementLocator}
     close window
+    switch window    ${WindowHandles}[0]
 
 *** Variables ***
 ${title}    Testing Lesson
