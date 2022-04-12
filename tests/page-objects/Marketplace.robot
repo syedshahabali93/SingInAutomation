@@ -193,6 +193,7 @@ All assignment types - Edit Lesson - Marketplace
     click element    ${AddAssignmentPopupNextButtonLocator}
     ${grammarTypeFourthPopup}   get text    ${AddAssignmentPopupGrammarTestThirdPopupHeadingLocator}
     should be equal as strings  ${grammarTypeFourthPopup}   ${grammar_type_fourth_popup}
+    sleep    2
     click element    ${AddAssignmentPopupCreateButtonLocator}
     set selenium speed    0.1
     page should contain element    ${AddAssignmentPopupSuccessfulCreation}
@@ -209,11 +210,13 @@ All assignment types - Edit Lesson - Marketplace
     click element    ${AddAssignmentPopupNextButtonLocator}
     sleep    15
     click element    ${AddAssignmentPopupNextButtonLocator}
+    sleep    2
     click element    ${AddAssignmentPopupCreateButtonLocator}
     set selenium speed    0.1
     page should contain element    ${AddAssignmentPopupSuccessfulCreation}
     set selenium speed    1
     click element    ${MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator}
+    sleep    2
     click element    ${AddAssignmentPopupFillBlanksLocator}
     sleep    2
     click element    ${AddAssignmentPopupNextButtonLocator}
@@ -222,11 +225,13 @@ All assignment types - Edit Lesson - Marketplace
     click element    ${AddAssignmentPopupNextButtonLocator}
     ${fillBlanksThirdPopup}     get text    ${AddAssignmentPopupGrammarTestThirdPopupHeadingLocator}
     should be equal as strings    ${fillBlanksThirdPopup}   ${grammar_type_fourth_popup}
+    sleep    2
     click element    ${AddAssignmentPopupCreateButtonLocator}
     set selenium speed    0.1
     page should contain element    ${AddAssignmentPopupSuccessfulCreation}
     set selenium speed    1
     click element    ${MarketplaceCreateALessonCreatedLessonViewEditedLessonViewEditLessonAddAssignmentButtonLocator}
+    sleep    2
     click element    ${AddAssignmentPopupWordPauseLocator}
     sleep    2
     click element    ${AddAssignmentPopupNextButtonLocator}
@@ -234,6 +239,7 @@ All assignment types - Edit Lesson - Marketplace
     should be equal as strings    ${word_pause_second_popup}    ${wordPauseSecondPopup}
     sleep    2
     click element    ${AddAssignmentPopupNextButtonLocator}
+    sleep    2
     click element    ${AddAssignmentPopupCreateButtonLocator}
     set selenium speed    0.1
     page should contain element    ${AddAssignmentPopupSuccessfulCreation}
@@ -245,6 +251,7 @@ All assignment types - Edit Lesson - Marketplace
     click element    ${AddAssignmentPopupNextButtonLocator}
     ${vocabularyQuizSecondPopup}    get text    ${AddAssignmentPopupVocabularyQuizFirstPopupLocator}
     should be equal as strings    ${vocabulary_quiz_second_popup}   ${vocabularyQuizSecondPopup}
+    sleep    2
     click element    ${AddAssignmentPopupCreateButtonLocator}
     set selenium speed    0.1
     page should contain element    ${AddAssignmentPopupSuccessfulCreation}

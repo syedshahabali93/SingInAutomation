@@ -292,8 +292,8 @@ In three vertical dots - Remove Group - Test Remove button
 
 *** Variables ***
 ${classes_heading_text}    My classes
-${edit_class_heading}   Update shehdi eight
-${student_name}     shehdi eight
+${edit_class_heading}   Update abc 2
+${student_name}     abc 2
 ${select_classes}    Select classes
 ${show_me_how_popup_heading}    How to manage groups?
 ${show_me_how_popup_heading_second}    Classes and schools
